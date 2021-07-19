@@ -4,12 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Calculator Tip App</title>
 </head>
+
 <body>
 
-    
+    <section>
+
+        <div class="parent_container">
+
+            <div class="container"> 
+                <label for="" class="labels">Bill</label>
+                <input type="text" class="child_data"> 
+            </div>
+
+            <div class="container discount">
+                <h3 class="labels">select tip %</h3>
+                <button value="0.05" class="child_data">5%</button>
+                <button value="0.10" class="child_data">10%</button>
+                <button value="0.15" class="child_data">15%</button>
+                <button value="0.25" class="child_data">25%</button>
+                <button value="0.50" class="child_data">50%</button>
+                <input type="text" class="child_data">
+            </div>
+
+            <div class="container"> 
+                <label for="" class="labels">number of people</label>
+                <input type="text" class="child_data">
+            </div>
+
+        </div>
+
+
+        <div class="parent_container second">
+
+            <div class="result_container">
+                <div>
+                    <h3 class="labels">Tip Amount</h3>
+                    <h4 class="labels">/ person</h4>
+                </div>
+                <div>
+                    <p class="child_data">$4.27</p>
+                </div>
+            </div>
+
+            <div class="result_container">
+                <div>
+                    <h3 class="labels">Total</h3>
+                    <h4 class="labels">/ person</h4>
+                </div>
+                <div>
+                    <p class="child_data">$32.79</p>
+                </div>
+            </div>
+
+            <div class="reset_container"> <button class="child_data">reset</button> </div>
+
+        </div>
+
+    </section>
     
 </body>
 </html>
