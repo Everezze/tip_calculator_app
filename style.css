@@ -9,6 +9,9 @@ body{
     background-color: hsl(185, 41%, 84%);
     min-height: 100vh;
     font-family: 'Space Mono';
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section{
@@ -19,6 +22,8 @@ section{
     align-items: center;
     border-radius: 1.5rem;
     padding: 1rem;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .container{
@@ -88,11 +93,37 @@ section{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 60vw;
+    height: 161px;
     gap: 0.8rem;
     margin-top: 0;
 }
 
 .discount button,.discount input{
     width: calc(50% - 0.4rem);
+}
+
+@media screen and (min-width:800px) {
+    .parent_container{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width:1101px) {
+    section{
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .second.parent_container{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .reset_container button{
+        width: 80%;
+        margin: 2rem 1rem 1.5rem;
+    }
+
 }
