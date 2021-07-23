@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: 1px dashed purple
 }
 
 body{
@@ -17,13 +18,14 @@ section{
     flex-direction: column;
     align-items: center;
     border-radius: 1.5rem;
+    padding: 1rem;
 }
 
 .container{
     display: flex;
     flex-direction: column;
     margin: 1.5rem;
-    gap: .8rem;
+    /* gap: .8rem; */
 }
 
 
@@ -31,6 +33,10 @@ section{
     display: flex;
     justify-content: space-between;
     margin: 2rem;
+}
+
+.result_container p{
+    font-size: 1.9rem;
 }
 
 .parent_container{
@@ -78,11 +84,15 @@ section{
     background-color: hsl(189, 41%, 97%);
 }
 
-.discount.container{
+.discount{
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     height: 60vw;
+    gap: 0.8rem;
+    margin-top: 0;
 }
 
-.discount.container button,.discount.container input{
-    width: 50%;
+.discount button,.discount input{
+    width: calc(50% - 0.4rem);
 }
