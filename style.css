@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    outline: 1px dashed purple
+    /* outline: 1px dashed purple */
 }
 
 body{
@@ -83,6 +83,9 @@ section{
     color: hsl(183, 100%, 15%);
     border: none;
     border-radius: .4rem;
+    font-family: 'Space Mono';
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .second.parent_container{
@@ -95,10 +98,16 @@ section{
     border-radius: 8px;/*.2rem*/
     border: none;
     padding: .5rem;
+    font-family: 'Space Mono';
+    color: white;
+    background-color: hsl(183, 100%, 15%);
+    font-weight: 525;
 }
 
 .container input{
     background-color: hsl(189, 41%, 97%);
+    color: hsl(183, 100%, 15%);
+    font-weight: 600;
 }
 
 .discount{
@@ -113,6 +122,17 @@ section{
 .discount button,.discount input{
     width: calc(50% - 0.4rem);
 }
+
+.discount button:hover,.discount input:hover{
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(172, 67%, 45%);
+}
+
+.tips.active{
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(172, 67%, 45%);
+}
+
 
 @media screen and (min-width:800px) {
     .parent_container{

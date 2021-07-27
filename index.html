@@ -19,24 +19,24 @@
 
             <div class="container"> 
                 <label for="" class="labels">Bill</label>
-                <input type="text" class="child_data"> 
+                <input type="text" class="child_data" id="bill"> 
             </div>
 
             <div class="container">
                 <h3 class="labels">select tip %</h3>
                 <div class="discount">
-                    <button value="0.05" class="child_data">5%</button>
-                    <button value="0.10" class="child_data">10%</button>
-                    <button value="0.15" class="child_data">15%</button>
-                    <button value="0.25" class="child_data">25%</button>
-                    <button value="0.50" class="child_data">50%</button>
-                    <input type="text" class="child_data">
+                    <button value="0.05" class="child_data tips">5%</button>
+                    <button value="0.10" class="child_data tips">10%</button>
+                    <button value="0.15" class="child_data tips">15%</button>
+                    <button value="0.25" class="child_data tips">25%</button>
+                    <button value="0.50" class="child_data tips">50%</button>
+                    <input type="text" class="child_data tips">
                 </div>
             </div>
 
             <div class="container"> 
                 <label for="" class="labels">number of people</label>
-                <input type="text" class="child_data">
+                <input type="text" class="child_data" id="numberOfPeople">
             </div>
 
         </div>
@@ -50,7 +50,7 @@
                         <h4 class="labels">/ person</h4>
                     </div>
                     <div>
-                        <p class="child_data">$4.27</p>
+                        <p class="child_data" id="tipPerPerson">$4.27</p>
                     </div>
                 </div>
 
@@ -60,15 +60,19 @@
                         <h4 class="labels">/ person</h4>
                     </div>
                     <div>
-                        <p class="child_data">$32.79</p>
+                        <p class="child_data" id="totalPerPerson">$32.79</p>
                     </div>
                 </div>
             </div>
-            <div class="reset_container"> <button class="child_data">reset</button> </div>
+
+            <div class="reset_container"> 
+                <button class="child_data">reset</button> 
+            </div>
 
         </div>
 
     </section>
     
+    <script src="calculator.js"></script>
 </body>
 </html>
