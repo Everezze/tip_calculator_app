@@ -35,10 +35,11 @@ for(let tip of Tips){
         console.log(tip.value);
         
         tip.classList.toggle('active');
-        t = tip.value;
+        t = parseFloat(tip.value);
         console.log(t);
 
-        totalOverall = `${bill.value} * ${( 1.00 + t )}` ;
+        totalOverall = `${bill.value} * ${( 1 + t )}` ;
+        
 
         tipPerPerson.innerHTML= (bill.value * t) / numberOfPeople.value;
         totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
@@ -47,6 +48,5 @@ for(let tip of Tips){
         console.log(`Bill is ${bill.value}`);
     })
 }
-
 console.log(numberOfPeople.value);
 console.log(totalPerPerson);
