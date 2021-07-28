@@ -25,11 +25,12 @@ for(let tip of Tips){
 
     tip.addEventListener('click',function(){
 
-        for (let i = 0; i < Tips.length; i++) {
-            if (Tips[i].classList.contains('active')) {
+        for(let i = 0; i < Tips.length; i++) {
+
+            if(Tips[i].classList.contains('active')) {
                 Tips[i].classList.toggle('active');
             }
-            
+
         }
 
         console.log('click working');
@@ -44,4 +45,3 @@ for(let tip of Tips){
 }
 
 // console.log(numberOfPeople.value);
-
