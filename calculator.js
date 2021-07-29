@@ -42,8 +42,12 @@ for(let tip of Tips){
         // totalOverall = `${bill.value} * ${( 1 + t )}`;
         totalOverall = bill.value * ( 1 + t );
 
-        tipPerPerson.innerHTML= (bill.value * t) / numberOfPeople.value;
-        totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
+        // tipPerPerson.innerHTML= (bill.value * t) / numberOfPeople.value;
+        // totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
+
+        //Rounding number to 2 decimal places
+        tipPerPerson.innerHTML= Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+        totalPerPerson.innerHTML= Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
         console.log(`Total overall is ${totalOverall}`);
         console.log(`Bill is ${bill.value}`);
@@ -52,3 +56,7 @@ for(let tip of Tips){
 
 console.log(numberOfPeople.value);
 console.log(totalPerPerson);
+
+bill.addEventListener('keypress',function(){
+
+})
