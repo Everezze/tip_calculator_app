@@ -46,8 +46,8 @@ for(let tip of Tips){
         // totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
 
         //Rounding number to 2 decimal places
-        tipPerPerson.innerHTML= Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-        totalPerPerson.innerHTML= Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
         console.log(`Total overall is ${totalOverall}`);
         console.log(`Bill is ${bill.value}`);
@@ -57,6 +57,20 @@ for(let tip of Tips){
 console.log(numberOfPeople.value);
 console.log(totalPerPerson);
 
-bill.addEventListener('keypress',function(){
+bill.addEventListener('keyup',function(){
+    
+    console.log('keyup working');
+    console.log(bill.value);
 
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+})
+
+numberOfPeople.addEventListener('keyup',function(){
+
+    console.log('keyup working');
+    console.log(numberOfPeople.value);
+
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 })
