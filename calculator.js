@@ -4,9 +4,8 @@ const numberOfPeople = document.getElementById('numberOfPeople');
 const tipPerPerson = document.getElementById('tipPerPerson');
 const totalPerPerson = document.getElementById('totalPerPerson');
 
-let t=0;
-let totalOverall = bill.value * ( 1 + (t/100) );
-
+let t=null;
+let totalOverall = bill.value * ( 1 + t );
 // tipPerPerson.innerHTML= (totalOverall/t) / numberOfPeople.value;
 
 // tipPerPerson = bill.value;
@@ -37,11 +36,18 @@ for(let tip of Tips){
         console.log(tip.value);
         
         tip.classList.toggle('active');
-        t= tip.value;
+        t = parseFloat(tip.value);
         console.log(t);
-        tipPerPerson.innerHTML= (totalOverall * t) / numberOfPeople.value;
-        totalPerPerson.innerHTML = (totalOverall/numberOfPeople.value);
+
+        totalOverall = `${bill.value} * ${( 1 + t )}` ;
+        
+
+        tipPerPerson.innerHTML= (bill.value * t) / numberOfPeople.value;
+        totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
+
+        console.log(`Total overall is ${totalOverall}`);
+        console.log(`Bill is ${bill.value}`);
     })
 }
-
-// console.log(numberOfPeople.value);
+console.log(numberOfPeople.value);
+console.log(totalPerPerson);
