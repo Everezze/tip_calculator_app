@@ -46,7 +46,7 @@ for(let tip of Tips){
             t = parseFloat(tip.value);
         }
         else{t=0;}
-        
+
         console.log(t);
         
 
@@ -72,6 +72,7 @@ bill.addEventListener('keyup',function(){
     
     console.log('keyup working');
     console.log(bill.value);
+    totalOverall = bill.value * ( 1 + t );
 
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
@@ -81,6 +82,7 @@ numberOfPeople.addEventListener('keyup',function(){
 
     console.log('keyup working');
     console.log(numberOfPeople.value);
+    totalOverall = bill.value * ( 1 + t );
 
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
