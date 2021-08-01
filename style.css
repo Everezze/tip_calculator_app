@@ -67,6 +67,7 @@ section{
 
 .child_data{
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .reset_container{
@@ -86,6 +87,10 @@ section{
     font-family: 'Space Mono';
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.reset_container button:hover{
+    background-color: hsl(172, 67%, 75%);
 }
 
 .second.parent_container{
@@ -130,7 +135,7 @@ section{
 
 .tips.active{
     color: hsl(183, 100%, 15%);
-    background-color: hsl(172, 67%, 45%);
+    background-color: hsl(172, 67%, 75%);
 }
 
 #bill:focus,#numberOfPeople:focus, #custom:focus{
@@ -141,6 +146,7 @@ section{
 #custom{
     background-color: hsl(189, 41%, 97%);
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 @media screen and (min-width:800px) {
