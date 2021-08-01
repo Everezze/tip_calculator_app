@@ -28,7 +28,11 @@ for(let tip of Tips){
         for(let i = 0; i < Tips.length; i++) {
 
             if(Tips[i].classList.contains('active')) {
-                Tips[i].classList.toggle('active');
+                
+                if (tip.classList.contains('active')) {
+                    continue;
+                }
+                Tips[i].classList.remove('active');
             }
 
         }
