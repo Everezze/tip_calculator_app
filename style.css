@@ -123,7 +123,7 @@ section{
     width: calc(50% - 0.4rem);
 }
 
-.discount button:hover,.discount input:hover{
+.discount button:hover/*.discount input:hover*/{
     color: hsl(183, 100%, 15%);
     background-color: hsl(172, 67%, 45%);
 }
@@ -140,6 +140,7 @@ section{
 
 #custom{
     background-color: hsl(189, 41%, 97%);
+    font-size: 1.5rem;
 }
 
 @media screen and (min-width:800px) {

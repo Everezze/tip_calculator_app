@@ -4,6 +4,7 @@ const numberOfPeople = document.getElementById('numberOfPeople');
 const tipPerPerson = document.getElementById('tipPerPerson');
 const totalPerPerson = document.getElementById('totalPerPerson');
 const resetButton= document.getElementById('reset_button');
+const customTip= document.getElementById('custom');
 
 let t = 0;
 let totalOverall = bill.value * ( 1 + t );
@@ -76,7 +77,7 @@ bill.addEventListener('keyup',function(){
 
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
-})
+});
 
 numberOfPeople.addEventListener('keyup',function(){
 
@@ -86,8 +87,32 @@ numberOfPeople.addEventListener('keyup',function(){
 
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
-})
+});
 
+customTip.addEventListener('keyup',function(){
+
+    console.log('customTip working');
+    console.log(customTip.value);
+    t = customTip.value /100;
+    totalOverall = bill.value * ( 1 + t );
+
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+});
+
+customTip.addEventListener('click',function(){
+
+    for (let z = 0; z < Tips.length; z++) {
+        Tips[z].classList.remove('active');
+    }
+
+    t = customTip.value /100;
+
+    totalOverall = bill.value * ( 1 + t );
+
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+});
 
 resetButton.addEventListener('click',function(){
 
@@ -106,4 +131,4 @@ resetButton.addEventListener('click',function(){
     
     bill.value="";
     numberOfPeople.value="";
-})
+});
