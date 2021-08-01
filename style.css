@@ -114,7 +114,7 @@ section{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 161px;
+    height: 182px; /*161px*/
     gap: 0.8rem;
     margin-top: 0;
 }

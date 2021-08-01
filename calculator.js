@@ -3,8 +3,9 @@ const Tips= document.getElementsByClassName('tips');
 const numberOfPeople = document.getElementById('numberOfPeople');
 const tipPerPerson = document.getElementById('tipPerPerson');
 const totalPerPerson = document.getElementById('totalPerPerson');
+const resetButton= document.getElementById('reset_button');
 
-let t=null;
+let t = null;
 let totalOverall = bill.value * ( 1 + t );
 // tipPerPerson.innerHTML= (totalOverall/t) / numberOfPeople.value;
 
@@ -73,4 +74,15 @@ numberOfPeople.addEventListener('keyup',function(){
 
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+})
+
+resetButton.addEventListener('click',function(){
+
+    t=0;
+    totalOverall=0;
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+
+    bill.value="";
+    numberOfPeople.value="";
 })
