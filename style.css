@@ -67,7 +67,6 @@ section{
 
 .child_data{
     font-size: 1.5rem;
-    cursor: pointer;
 }
 
 .reset_container{
@@ -146,8 +145,13 @@ section{
 #custom{
     background-color: hsl(189, 41%, 97%);
     font-size: 1.5rem;
+}
+
+#custom,#bill,.tips,#numberOfPeople,#reset_button{
     cursor: pointer;
 }
+
+
 
 @media screen and (min-width:800px) {
     .parent_container{
