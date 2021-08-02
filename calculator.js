@@ -64,10 +64,11 @@ for(let tip of Tips){
         console.log(`Total overall is ${totalOverall}`);
         console.log(`Bill is ${bill.value}`);
 
-        if(!bill.value && !t.value && !numberOfPeople.value) {
+        if(!bill.value && !t && !numberOfPeople.value) {
             resetButton.setAttribute("disabled","disabled");
         }
-        else{resetButton.removeAttribute("disabled");}
+        else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+            
     })
 }
 
@@ -83,10 +84,22 @@ bill.addEventListener('keyup',function(){
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
-    if(!bill.value && !t.value && !numberOfPeople.value) {
+    // if(!bill.value && !t.value && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else{resetButton.removeAttribute("disabled");}
+
+    // if(!bill.value && !t && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else if(bill.value || t || numberOfPeople.value){
+    //     resetButton.removeAttribute("disabled");}
+    //     console.log("succesfully removed");
+
+    if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
     }
-    else{resetButton.removeAttribute("disabled");}
+    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
 });
 
 numberOfPeople.addEventListener('keyup',function(){
@@ -103,10 +116,23 @@ numberOfPeople.addEventListener('keyup',function(){
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
-    if(!bill.value && !t.value && !numberOfPeople.value) {
+    // if(!bill.value && !t.value && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else{resetButton.removeAttribute("disabled");}
+
+
+    // if(!bill.value && !t && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else if(bill.value || t || numberOfPeople.value){
+    //     resetButton.removeAttribute("disabled");}
+    //     console.log("succesfully removed");
+
+    if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
     }
-    else{resetButton.removeAttribute("disabled");}
+    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
 });
 
 customTip.addEventListener('keyup',function(){
@@ -119,10 +145,15 @@ customTip.addEventListener('keyup',function(){
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
-    if(!bill.value && !t.value && !numberOfPeople.value) {
+    // if(!bill.value && !t.value && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else{resetButton.removeAttribute("disabled");}
+
+    if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
     }
-    else{resetButton.removeAttribute("disabled");}
+    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
 });
 
 customTip.addEventListener('click',function(){
@@ -138,10 +169,15 @@ customTip.addEventListener('click',function(){
     tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
     totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
-    if(!bill.value && !t.value && !numberOfPeople.value) {
+    // if(!bill.value && !t.value && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else{resetButton.removeAttribute("disabled");}
+
+    if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
     }
-    else{resetButton.removeAttribute("disabled");}
+    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
 });
 
 resetButton.addEventListener('click',function(){
@@ -160,10 +196,16 @@ resetButton.addEventListener('click',function(){
     }
     
     bill.value="";
+    customTip.value="";
     numberOfPeople.value="";
 
-    if(!bill.value && !t.value && !numberOfPeople.value) {
+    // if(!bill.value && !t.value && !numberOfPeople.value) {
+    //     resetButton.setAttribute("disabled","disabled");
+    // }
+    // else{resetButton.removeAttribute("disabled");}
+
+    if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
     }
-    else{resetButton.removeAttribute("disabled");}
+    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
 });
