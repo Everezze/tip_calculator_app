@@ -151,6 +151,10 @@ section{
     cursor: pointer;
 }
 
+#custom,#bill,#numberOfPeople{
+    text-align: right;
+}
+
 input.child_data{
     width: 100%;
 }

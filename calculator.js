@@ -110,7 +110,9 @@ numberOfPeople.addEventListener('keyup',function(){
         errorMessage.style.display = "block";
     }
     else{
-        numberOfPeople.style.outline = "2px solid hsl(172, 67%, 45%)";
+        //line of code below definitely let outline be this color even if input not focused
+        // numberOfPeople.style.outline = "2px solid hsl(172, 67%, 45%)";
+        numberOfPeople.style.outline = "";
         errorMessage.style.display="none";
     }
 
