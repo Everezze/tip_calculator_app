@@ -77,6 +77,11 @@ for(let tip of Tips){
         // if(resetButton.hasAttribute('disabled')) {
         //     resetButton.classList.add('desactivated');
         // }
+
+        if(!bill.value || !t || !numberOfPeople.value) {
+            tipPerPerson.innerHTML= "$...";
+            totalPerPerson.innerHTML= "$...";
+        }
     })
 }
 
@@ -112,7 +117,24 @@ bill.addEventListener('keyup',function(){
         resetButton.removeAttribute("disabled"); console.log("succesfully removed");
         resetButton.classList.remove('desactivated');
     }
+
+    if (!bill.value || !t || !numberOfPeople.value) {
+        tipPerPerson.innerHTML= "$...";
+        totalPerPerson.innerHTML= "$...";
+    }
 });
+
+numberOfPeople.addEventListener('click',function(){
+
+    if(numberOfPeople.value<1 && numberOfPeople.value){
+        numberOfPeople.style.outline = "2px solid crimson";
+        errorMessage.style.display = "block";
+    }
+    else{
+        numberOfPeople.style.outline = "";
+        errorMessage.style.display="none";
+    }
+})
 
 numberOfPeople.addEventListener('keyup',function(){
 
@@ -155,6 +177,11 @@ numberOfPeople.addEventListener('keyup',function(){
         resetButton.removeAttribute("disabled"); console.log("succesfully removed");
         resetButton.classList.remove('desactivated');
     }
+
+    if (!numberOfPeople.value) {
+        tipPerPerson.innerHTML= "€rr";
+        totalPerPerson.innerHTML= "€rr";
+    }
 });
 
 customTip.addEventListener('keyup',function(){
@@ -179,6 +206,11 @@ customTip.addEventListener('keyup',function(){
     else{
         resetButton.removeAttribute("disabled"); console.log("succesfully removed");
         resetButton.classList.remove('desactivated');
+    }
+
+    if (!bill.value || !t || !numberOfPeople.value) {
+        tipPerPerson.innerHTML= "$...";
+        totalPerPerson.innerHTML= "$...";
     }
 });
 
@@ -208,6 +240,11 @@ customTip.addEventListener('click',function(){
         resetButton.removeAttribute("disabled"); console.log("succesfully removed");
         resetButton.classList.remove('desactivated');
     }
+
+    if (!bill.value || !t || !numberOfPeople.value) {
+        tipPerPerson.innerHTML= "$...";
+        totalPerPerson.innerHTML= "$...";
+    }
 });
 
 resetButton.addEventListener('click',function(){
@@ -228,6 +265,8 @@ resetButton.addEventListener('click',function(){
     bill.value="";
     customTip.value="";
     numberOfPeople.value="";
+    numberOfPeople.style.outline = "";
+    errorMessage.style.display="none";
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
