@@ -67,9 +67,16 @@ for(let tip of Tips){
 
         if(!bill.value && !t && !numberOfPeople.value) {
             resetButton.setAttribute("disabled","disabled");
+            resetButton.classList.add('desactivated');
         }
-        else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+        else{
+            resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+            resetButton.classList.remove('desactivated');
+        }
             
+        // if(resetButton.hasAttribute('disabled')) {
+        //     resetButton.classList.add('desactivated');
+        // }
     })
 }
 
@@ -99,8 +106,12 @@ bill.addEventListener('keyup',function(){
 
     if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
+        resetButton.classList.add('desactivated');
     }
-    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+    else{
+        resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+        resetButton.classList.remove('desactivated');
+    }
 });
 
 numberOfPeople.addEventListener('keyup',function(){
@@ -138,8 +149,12 @@ numberOfPeople.addEventListener('keyup',function(){
 
     if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
+        resetButton.classList.add('desactivated');
     }
-    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+    else{
+        resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+        resetButton.classList.remove('desactivated');
+    }
 });
 
 customTip.addEventListener('keyup',function(){
@@ -159,8 +174,12 @@ customTip.addEventListener('keyup',function(){
 
     if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
+        resetButton.classList.add('desactivated');
     }
-    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+    else{
+        resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+        resetButton.classList.remove('desactivated');
+    }
 });
 
 customTip.addEventListener('click',function(){
@@ -183,8 +202,12 @@ customTip.addEventListener('click',function(){
 
     if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
+        resetButton.classList.add('desactivated');
     }
-    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+    else{
+        resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+        resetButton.classList.remove('desactivated');
+    }
 });
 
 resetButton.addEventListener('click',function(){
@@ -213,6 +236,11 @@ resetButton.addEventListener('click',function(){
 
     if(!bill.value && !t && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
+        resetButton.classList.add('desactivated');
     }
-    else{resetButton.removeAttribute("disabled"); console.log("succesfully removed");}
+    else{
+        resetButton.removeAttribute("disabled"); console.log("succesfully removed");
+        resetButton.classList.remove('desactivated');
+    }
+    
 });
