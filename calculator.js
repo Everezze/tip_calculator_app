@@ -5,6 +5,7 @@ const tipPerPerson = document.getElementById('tipPerPerson');
 const totalPerPerson = document.getElementById('totalPerPerson');
 const resetButton= document.getElementById('reset_button');
 const customTip= document.getElementById('custom');
+const errorMessage= document.getElementById('error_msg');
 
 let t = 0;
 let totalOverall = bill.value * ( 1 + t );
@@ -106,8 +107,12 @@ numberOfPeople.addEventListener('keyup',function(){
 
     if(numberOfPeople.value<1 && numberOfPeople.value){
         numberOfPeople.style.outline = "2px solid crimson";
+        errorMessage.style.display = "block";
     }
-    else{numberOfPeople.style.outline = "2px solid hsl(172, 67%, 45%)";}
+    else{
+        numberOfPeople.style.outline = "2px solid hsl(172, 67%, 45%)";
+        errorMessage.style.display="none";
+    }
 
     console.log('keyup working');
     console.log(numberOfPeople.value);
