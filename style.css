@@ -151,7 +151,27 @@ section{
     cursor: pointer;
 }
 
+input.child_data{
+    width: 100%;
+}
 
+#dollar, #people_icon{
+    position: relative;
+}
+
+#dollar::before{
+    position: absolute;
+    content: url('images/icon-dollar.svg');
+    top: 35%;
+    left: 5%;
+}
+
+#people_icon::before{
+    position: absolute;
+    content: url('images/icon-person.svg');
+    top: 35%;
+    left: 5%;
+}
 
 @media screen and (min-width:800px) {
     .parent_container{
