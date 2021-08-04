@@ -9,7 +9,7 @@ const errorMessagePpl= document.getElementById('error_msg_ppl');
 const errorMessageBill= document.getElementById('error_msg_bill');
 const errorMessageTip=document.getElementById('error_msg_tip');
 
-let t = NaN;
+let t = 0;
 let billValue=0;
 let pplValue=0;
 let customedTip=0;
@@ -27,6 +27,9 @@ console.log(Tips);
 //         tip.classList.toggle('active');
 //     })
 // });
+
+resetButton.setAttribute("disabled","disabled");
+resetButton.classList.add('desactivated');
 
 for(let tip of Tips){
 
@@ -93,7 +96,7 @@ for(let tip of Tips){
             errorMessageTip.style.display="none";
         }
 
-        if(!billValue || !customTip || !pplValue || !t){
+        if(!billValue || !pplValue || !t){
             tipPerPerson.innerHTML= "$0.00";
             totalPerPerson.innerHTML= "$0.00";
         }
@@ -163,7 +166,7 @@ bill.addEventListener('keyup',function(){
         errorMessageBill.style.display="none";
     }
 
-    if(!billValue || !customTip || !pplValue || !t){
+    if(!billValue || !pplValue || !t){
         tipPerPerson.innerHTML= "$0.00";
         totalPerPerson.innerHTML= "$0.00";
     }
@@ -189,7 +192,7 @@ numberOfPeople.addEventListener('keyup',function(){
 
     pplValue = parseFloat(numberOfPeople.value);
 
-    if(pplValue<1 && pplValue != NaN){
+    if(pplValue <1 && pplValue != NaN){
         numberOfPeople.style.outline = "2px solid crimson";
         errorMessagePpl.style.display = "block";
     }
@@ -234,7 +237,7 @@ numberOfPeople.addEventListener('keyup',function(){
     //     totalPerPerson.innerHTML= "€rr";
     // }
 
-    if(!billValue || !customTip || !pplValue || !t){
+    if(!billValue || !pplValue || !t){
         tipPerPerson.innerHTML= "$0.00";
         totalPerPerson.innerHTML= "$0.00";
     }
@@ -285,7 +288,7 @@ customTip.addEventListener('keyup',function(){
     //     totalPerPerson.innerHTML= "$...";
     // }
 
-    if(!billValue || !customTip || !pplValue || !t){
+    if(!billValue || !pplValue || !t){
         tipPerPerson.innerHTML= "$0.00";
         totalPerPerson.innerHTML= "$0.00";
     }
@@ -339,7 +342,7 @@ customTip.addEventListener('click',function(){
     //     totalPerPerson.innerHTML= "$...";
     // }
 
-    if(!billValue || !customTip || !pplValue || !t){
+    if(!billValue || !pplValue || !t){
         tipPerPerson.innerHTML= "$0.00";
         totalPerPerson.innerHTML= "$0.00";
     }
@@ -392,7 +395,7 @@ resetButton.addEventListener('click',function(){
         resetButton.classList.remove('desactivated');
     }
 
-    if(!billValue || !customTip || !pplValue || !t){
+    if(!billValue || !pplValue || !t){
         tipPerPerson.innerHTML= "$0.00";
         totalPerPerson.innerHTML= "$0.00";
     }
