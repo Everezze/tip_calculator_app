@@ -9,7 +9,7 @@ const errorMessagePpl= document.getElementById('error_msg_ppl');
 const errorMessageBill= document.getElementById('error_msg_bill');
 const errorMessageTip=document.getElementById('error_msg_tip');
 
-let t = 0;
+let t = NaN;
 let billValue=0;
 let pplValue=0;
 let customedTip=0;
@@ -70,7 +70,7 @@ for(let tip of Tips){
         console.log(`Total overall is ${totalOverall}`);
         console.log(`Bill is ${billValue}`);
 
-        if(!billValue && !t && !pplValue) {
+        if(!bill.value && !customTip.value && !numberOfPeople.value) {
             resetButton.setAttribute("disabled","disabled");
             resetButton.classList.add('desactivated');
         }
@@ -92,6 +92,17 @@ for(let tip of Tips){
             customTip.style.outline ="";
             errorMessageTip.style.display="none";
         }
+
+        if(!billValue || !customTip || !pplValue || !t){
+            tipPerPerson.innerHTML= "$0.00";
+            totalPerPerson.innerHTML= "$0.00";
+        }
+        else{
+            tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+            totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
+        }
+
+    
     })
 }
 
@@ -128,7 +139,7 @@ bill.addEventListener('keyup',function(){
     //     resetButton.removeAttribute("disabled");}
     //     console.log("succesfully removed");
 
-    if(billValue ==NaN && t==NaN && pplValue==NaN) {
+    if(!bill.value && !customTip.value && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -150,6 +161,15 @@ bill.addEventListener('keyup',function(){
     else{
         bill.style.outline = "";
         errorMessageBill.style.display="none";
+    }
+
+    if(!billValue || !customTip || !pplValue || !t){
+        tipPerPerson.innerHTML= "$0.00";
+        totalPerPerson.innerHTML= "$0.00";
+    }
+    else{
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
     }
 });
 
@@ -200,7 +220,7 @@ numberOfPeople.addEventListener('keyup',function(){
     //     resetButton.removeAttribute("disabled");}
     //     console.log("succesfully removed");
 
-    if(!billValue && !t && !pplValue) {
+    if(!bill.value && !customTip.value && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -213,11 +233,20 @@ numberOfPeople.addEventListener('keyup',function(){
     //     tipPerPerson.innerHTML= "€rr";
     //     totalPerPerson.innerHTML= "€rr";
     // }
+
+    if(!billValue || !customTip || !pplValue || !t){
+        tipPerPerson.innerHTML= "$0.00";
+        totalPerPerson.innerHTML= "$0.00";
+    }
+    else{
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
+    }
 });
 
 customTip.addEventListener('keyup',function(){
 
-    customedTip = parseFloat(customedTip.value);
+    customedTip = parseFloat(customTip.value);
 
     if(customedTip <1 && customedTip !=NaN) {
         customTip.style.outline = "2px solid crimson";
@@ -242,7 +271,7 @@ customTip.addEventListener('keyup',function(){
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!billValue && !t && !pplValue) {
+    if(!bill.value && !customTip.value && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -255,9 +284,20 @@ customTip.addEventListener('keyup',function(){
     //     tipPerPerson.innerHTML= "$...";
     //     totalPerPerson.innerHTML= "$...";
     // }
+
+    if(!billValue || !customTip || !pplValue || !t){
+        tipPerPerson.innerHTML= "$0.00";
+        totalPerPerson.innerHTML= "$0.00";
+    }
+    else{
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
+    }
 });
 
 customTip.addEventListener('click',function(){
+
+    customedTip = parseFloat(customTip.value);
 
     if(customedTip <1 && customedTip !=NaN) {
         customTip.style.outline = "2px solid crimson";
@@ -285,7 +325,7 @@ customTip.addEventListener('click',function(){
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!billValue && !t && !pplValue) {
+    if(!bill.value && !customTip.value && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -298,6 +338,15 @@ customTip.addEventListener('click',function(){
     //     tipPerPerson.innerHTML= "$...";
     //     totalPerPerson.innerHTML= "$...";
     // }
+
+    if(!billValue || !customTip || !pplValue || !t){
+        tipPerPerson.innerHTML= "$0.00";
+        totalPerPerson.innerHTML= "$0.00";
+    }
+    else{
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
+    }
 });
 
 resetButton.addEventListener('click',function(){
@@ -308,8 +357,8 @@ resetButton.addEventListener('click',function(){
     // totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
 
     t=0;
-    tipPerPerson.innerHTML= "$0.00";
-    totalPerPerson.innerHTML= "$0.00";
+    // tipPerPerson.innerHTML= "$0.00";
+    // totalPerPerson.innerHTML= "$0.00";
 
     for(let z = 0; z < Tips.length; z++) {
         Tips[z].classList.remove('active');
@@ -321,21 +370,35 @@ resetButton.addEventListener('click',function(){
     customedTip=0;
     numberOfPeople.value="";
     pplValue=0;
-    // numberOfPeople.style.outline = "";
-    // errorMessage.style.display="none";
+
+    numberOfPeople.style.outline = "";
+    errorMessagePpl.style.display="none";
+    customTip.style.outline = "";
+    errorMessageTip.style.display="none";
+    bill.style.outline = "";
+    errorMessageBill.style.display="none";
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!billValue && !t && !pplValue) {
+    if(!bill.value && !customTip.value && !numberOfPeople.value) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
     else{
         resetButton.removeAttribute("disabled"); console.log("succesfully removed");
         resetButton.classList.remove('desactivated');
+    }
+
+    if(!billValue || !customTip || !pplValue || !t){
+        tipPerPerson.innerHTML= "$0.00";
+        totalPerPerson.innerHTML= "$0.00";
+    }
+    else{
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
     }
     
 });
