@@ -10,7 +10,10 @@ const errorMessageBill= document.getElementById('error_msg_bill');
 const errorMessageTip=document.getElementById('error_msg_tip');
 
 let t = 0;
-let totalOverall = bill.value * ( 1 + t );
+let billValue=0;
+let pplValue=0;
+let customedTip=0;
+let totalOverall = billValue * ( 1 + t );
 // tipPerPerson.innerHTML= (totalOverall/t) / numberOfPeople.value;
 
 // tipPerPerson = bill.value;
@@ -33,7 +36,7 @@ for(let tip of Tips){
 
             if(Tips[i].classList.contains('active')) {
 
-                if (tip.classList.contains('active')) {
+                if(tip.classList.contains('active')) {
                     continue;
                 }
                 Tips[i].classList.remove('active');
@@ -55,19 +58,19 @@ for(let tip of Tips){
         
 
         // totalOverall = `${bill.value} * ${( 1 + t )}`;
-        totalOverall = bill.value * ( 1 + t );
+        totalOverall = billValue * ( 1 + t );
 
         // tipPerPerson.innerHTML= (bill.value * t) / numberOfPeople.value;
         // totalPerPerson.innerHTML= totalOverall / numberOfPeople.value;
 
         //Rounding number to 2 decimal places
-        tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+        tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+        totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
 
         console.log(`Total overall is ${totalOverall}`);
-        console.log(`Bill is ${bill.value}`);
+        console.log(`Bill is ${billValue}`);
 
-        if(!bill.value && !t && !numberOfPeople.value) {
+        if(!billValue && !t && !pplValue) {
             resetButton.setAttribute("disabled","disabled");
             resetButton.classList.add('desactivated');
         }
@@ -85,7 +88,7 @@ for(let tip of Tips){
         //     totalPerPerson.innerHTML= "$...";
         // }
 
-        if (t != customTip.value) {
+        if(t != customTip.value) {
             customTip.style.outline ="";
             errorMessageTip.style.display="none";
         }
@@ -96,13 +99,22 @@ console.log(numberOfPeople.value);
 console.log(totalPerPerson);
 
 bill.addEventListener('keyup',function(){
-    
-    console.log('keyup working');
-    console.log(bill.value);
-    totalOverall = bill.value * ( 1 + t );
 
-    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+    /*
+
+    .value is readonly so no operation like parseFloat can alter it's nature;
+    bill.value = parseFloat(bill.value); will not work
+    console.log(typeof(bill.value));
+    
+    */
+    billValue = parseFloat(bill.value);
+
+    console.log('keyup working');
+    console.log(billValue);
+    totalOverall = billValue * ( 1 + t );
+
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
@@ -116,7 +128,7 @@ bill.addEventListener('keyup',function(){
     //     resetButton.removeAttribute("disabled");}
     //     console.log("succesfully removed");
 
-    if(!bill.value && !t && !numberOfPeople.value) {
+    if(billValue ==NaN && t==NaN && pplValue==NaN) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -130,7 +142,7 @@ bill.addEventListener('keyup',function(){
     //     totalPerPerson.innerHTML= "$...";
     // }
 
-    if(bill.value <1 && bill.value) {
+    if(billValue <1 && billValue != NaN) {
         bill.style.outline = "2px solid crimson";
         errorMessageBill.style.display = "block";
     }
@@ -155,7 +167,9 @@ bill.addEventListener('keyup',function(){
 
 numberOfPeople.addEventListener('keyup',function(){
 
-    if(numberOfPeople.value<1 && numberOfPeople.value){
+    pplValue = parseFloat(numberOfPeople.value);
+
+    if(pplValue<1 && pplValue != NaN){
         numberOfPeople.style.outline = "2px solid crimson";
         errorMessagePpl.style.display = "block";
     }
@@ -167,11 +181,11 @@ numberOfPeople.addEventListener('keyup',function(){
     }
 
     console.log('keyup working');
-    console.log(numberOfPeople.value);
-    totalOverall = bill.value * ( 1 + t );
+    console.log(pplValue);
+    totalOverall = billValue * ( 1 + t );
 
-    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
@@ -186,7 +200,7 @@ numberOfPeople.addEventListener('keyup',function(){
     //     resetButton.removeAttribute("disabled");}
     //     console.log("succesfully removed");
 
-    if(!bill.value && !t && !numberOfPeople.value) {
+    if(!billValue && !t && !pplValue) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -203,7 +217,9 @@ numberOfPeople.addEventListener('keyup',function(){
 
 customTip.addEventListener('keyup',function(){
 
-    if(customTip.value <1 && customTip.value) {
+    customedTip = parseFloat(customedTip.value);
+
+    if(customedTip <1 && customedTip !=NaN) {
         customTip.style.outline = "2px solid crimson";
         errorMessageTip.style.display = "block";
     }
@@ -214,19 +230,19 @@ customTip.addEventListener('keyup',function(){
     }
 
     console.log('customTip working');
-    console.log(customTip.value);
-    t = customTip.value /100;
-    totalOverall = bill.value * ( 1 + t );
+    console.log(customedTip);
+    t = customedTip /100;
+    totalOverall = billValue * ( 1 + t );
 
-    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!bill.value && !t && !numberOfPeople.value) {
+    if(!billValue && !t && !pplValue) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -243,7 +259,7 @@ customTip.addEventListener('keyup',function(){
 
 customTip.addEventListener('click',function(){
 
-    if(customTip.value <1 && customTip.value) {
+    if(customedTip <1 && customedTip !=NaN) {
         customTip.style.outline = "2px solid crimson";
         errorMessageTip.style.display = "block";
     }
@@ -257,19 +273,19 @@ customTip.addEventListener('click',function(){
         Tips[z].classList.remove('active');
     }
 
-    t = customTip.value /100;
+    t = customedTip /100;
 
-    totalOverall = bill.value * ( 1 + t );
+    totalOverall = billValue * ( 1 + t );
 
-    tipPerPerson.innerHTML= "$"+ Math.round( ( (bill.value * t)/numberOfPeople.value ) * 100) / 100 ;
-    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/numberOfPeople.value) * 100) / 100;
+    tipPerPerson.innerHTML= "$"+ Math.round( ( (billValue * t)/pplValue ) * 100) / 100 ;
+    totalPerPerson.innerHTML= "$"+ Math.round( (totalOverall/pplValue) * 100) / 100;
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!bill.value && !t && !numberOfPeople.value) {
+    if(!billValue && !t && !pplValue) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
@@ -300,17 +316,20 @@ resetButton.addEventListener('click',function(){
     }
     
     bill.value="";
+    billValue=0;
     customTip.value="";
+    customedTip=0;
     numberOfPeople.value="";
-    numberOfPeople.style.outline = "";
-    errorMessage.style.display="none";
+    pplValue=0;
+    // numberOfPeople.style.outline = "";
+    // errorMessage.style.display="none";
 
     // if(!bill.value && !t.value && !numberOfPeople.value) {
     //     resetButton.setAttribute("disabled","disabled");
     // }
     // else{resetButton.removeAttribute("disabled");}
 
-    if(!bill.value && !t && !numberOfPeople.value) {
+    if(!billValue && !t && !pplValue) {
         resetButton.setAttribute("disabled","disabled");
         resetButton.classList.add('desactivated');
     }
