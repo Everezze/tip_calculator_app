@@ -182,7 +182,7 @@ input.child_data{
     justify-content: space-between;
 }
 
-#error_msg{
+#error_msg_ppl,#error_msg_tip,#error_msg_bill{
     display: none;
     color: crimson;
 }

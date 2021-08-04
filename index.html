@@ -17,8 +17,13 @@
 
         <div class="parent_container">
 
-            <div class="container"> 
-                <label for="" class="labels">Bill</label>
+            <div class="container">
+
+                <div class="error_container">
+                    <label for="" class="labels">Bill</label>
+                    <p id="error_msg_bill">Can't be zero</p>
+                </div>
+                
                 <div id="dollar">
                     <input type="text" class="child_data" id="bill" > <!-- dir="rtl" -->  
                 </div>
@@ -26,7 +31,12 @@
             </div>
 
             <div class="container">
-                <h3 class="labels">select tip %</h3>
+
+                <div class="error_container">
+                    <h3 class="labels">select tip %</h3>
+                    <p id="error_msg_tip">Can't be zero</p>
+                </div>
+                
                 <div class="discount">
                     <button value="0.05" class="child_data tips">5%</button>
                     <button value="0.10" class="child_data tips">10%</button>
@@ -39,9 +49,10 @@
             </div>
 
             <div class="container">
+
                 <div class="error_container">
                     <label for="" class="labels">number of people</label>
-                    <p id="error_msg">Can't be zero</p>
+                    <p id="error_msg_ppl">Can't be zero</p>
                 </div>
                 
                 <div id="people_icon">
@@ -54,6 +65,7 @@
 
 
         <div class="parent_container second">
+
             <div>
                 <div class="result_container">
                     <div>

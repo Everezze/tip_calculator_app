@@ -5,7 +5,9 @@ const tipPerPerson = document.getElementById('tipPerPerson');
 const totalPerPerson = document.getElementById('totalPerPerson');
 const resetButton= document.getElementById('reset_button');
 const customTip= document.getElementById('custom');
-const errorMessage= document.getElementById('error_msg');
+const errorMessagePpl= document.getElementById('error_msg_ppl');
+const errorMessageBill= document.getElementById('error_msg_bill');
+const errorMessageTip=document.getElementById('error_msg_tip');
 
 let t = 0;
 let totalOverall = bill.value * ( 1 + t );
@@ -78,9 +80,14 @@ for(let tip of Tips){
         //     resetButton.classList.add('desactivated');
         // }
 
-        if(!bill.value || !t || !numberOfPeople.value) {
-            tipPerPerson.innerHTML= "$...";
-            totalPerPerson.innerHTML= "$...";
+        // if(!bill.value || !t || !numberOfPeople.value) {
+        //     tipPerPerson.innerHTML= "$...";
+        //     totalPerPerson.innerHTML= "$...";
+        // }
+
+        if (t != customTip.value) {
+            customTip.style.outline ="";
+            errorMessageTip.style.display="none";
         }
     })
 }
@@ -118,35 +125,45 @@ bill.addEventListener('keyup',function(){
         resetButton.classList.remove('desactivated');
     }
 
-    if (!bill.value || !t || !numberOfPeople.value) {
-        tipPerPerson.innerHTML= "$...";
-        totalPerPerson.innerHTML= "$...";
+    // if(!bill.value || !t || !numberOfPeople.value) {
+    //     tipPerPerson.innerHTML= "$...";
+    //     totalPerPerson.innerHTML= "$...";
+    // }
+
+    if(bill.value <1 && bill.value) {
+        bill.style.outline = "2px solid crimson";
+        errorMessageBill.style.display = "block";
+    }
+
+    else{
+        bill.style.outline = "";
+        errorMessageBill.style.display="none";
     }
 });
 
-numberOfPeople.addEventListener('click',function(){
+// numberOfPeople.addEventListener('click',function(){
 
-    if(numberOfPeople.value<1 && numberOfPeople.value){
-        numberOfPeople.style.outline = "2px solid crimson";
-        errorMessage.style.display = "block";
-    }
-    else{
-        numberOfPeople.style.outline = "";
-        errorMessage.style.display="none";
-    }
-})
+//     if(numberOfPeople.value<1 && numberOfPeople.value){
+//         numberOfPeople.style.outline = "2px solid crimson";
+//         errorMessagePpl.style.display = "block";
+//     }
+//     else{
+//         numberOfPeople.style.outline = "";
+//         errorMessagePpl.style.display="none";
+//     }
+// })
 
 numberOfPeople.addEventListener('keyup',function(){
 
     if(numberOfPeople.value<1 && numberOfPeople.value){
         numberOfPeople.style.outline = "2px solid crimson";
-        errorMessage.style.display = "block";
+        errorMessagePpl.style.display = "block";
     }
     else{
         //line of code below definitely let outline be this color even if input not focused
         // numberOfPeople.style.outline = "2px solid hsl(172, 67%, 45%)";
         numberOfPeople.style.outline = "";
-        errorMessage.style.display="none";
+        errorMessagePpl.style.display="none";
     }
 
     console.log('keyup working');
@@ -178,13 +195,23 @@ numberOfPeople.addEventListener('keyup',function(){
         resetButton.classList.remove('desactivated');
     }
 
-    if (!numberOfPeople.value) {
-        tipPerPerson.innerHTML= "€rr";
-        totalPerPerson.innerHTML= "€rr";
-    }
+    // if(!numberOfPeople.value) {
+    //     tipPerPerson.innerHTML= "€rr";
+    //     totalPerPerson.innerHTML= "€rr";
+    // }
 });
 
 customTip.addEventListener('keyup',function(){
+
+    if(customTip.value <1 && customTip.value) {
+        customTip.style.outline = "2px solid crimson";
+        errorMessageTip.style.display = "block";
+    }
+
+    else{
+        customTip.style.outline = "";
+        errorMessageTip.style.display="none";
+    }
 
     console.log('customTip working');
     console.log(customTip.value);
@@ -208,15 +235,25 @@ customTip.addEventListener('keyup',function(){
         resetButton.classList.remove('desactivated');
     }
 
-    if (!bill.value || !t || !numberOfPeople.value) {
-        tipPerPerson.innerHTML= "$...";
-        totalPerPerson.innerHTML= "$...";
-    }
+    // if(!bill.value || !t || !numberOfPeople.value) {
+    //     tipPerPerson.innerHTML= "$...";
+    //     totalPerPerson.innerHTML= "$...";
+    // }
 });
 
 customTip.addEventListener('click',function(){
 
-    for (let z = 0; z < Tips.length; z++) {
+    if(customTip.value <1 && customTip.value) {
+        customTip.style.outline = "2px solid crimson";
+        errorMessageTip.style.display = "block";
+    }
+
+    else{
+        customTip.style.outline = "";
+        errorMessageTip.style.display="none";
+    }
+
+    for(let z = 0; z < Tips.length; z++) {
         Tips[z].classList.remove('active');
     }
 
@@ -241,10 +278,10 @@ customTip.addEventListener('click',function(){
         resetButton.classList.remove('desactivated');
     }
 
-    if (!bill.value || !t || !numberOfPeople.value) {
-        tipPerPerson.innerHTML= "$...";
-        totalPerPerson.innerHTML= "$...";
-    }
+    // if(!bill.value || !t || !numberOfPeople.value) {
+    //     tipPerPerson.innerHTML= "$...";
+    //     totalPerPerson.innerHTML= "$...";
+    // }
 });
 
 resetButton.addEventListener('click',function(){
@@ -258,7 +295,7 @@ resetButton.addEventListener('click',function(){
     tipPerPerson.innerHTML= "$0.00";
     totalPerPerson.innerHTML= "$0.00";
 
-    for (let z = 0; z < Tips.length; z++) {
+    for(let z = 0; z < Tips.length; z++) {
         Tips[z].classList.remove('active');
     }
     
