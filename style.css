@@ -11,7 +11,14 @@ body{
     font-family: 'Space Mono';
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+h1{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5%;
 }
 
 section{
@@ -19,11 +26,11 @@ section{
     background-color: hsl(0, 0%, 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     border-radius: 1.5rem;
-    padding: 1rem;
+    padding: 2rem;
     justify-content: center;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 .container{
@@ -52,9 +59,9 @@ section{
     text-transform: lowercase;
 }
 
-.parent_container{
+/* .parent_container{
     width: 85%;
-}
+} */
 
 .labels{
     font-size: 1rem;
@@ -193,16 +200,24 @@ input.child_data{
     pointer-events: none;
 }
 
-@media screen and (min-width:800px) {
+/* @media screen and (min-width:800px) {
     .parent_container{
         width: 70%;
     }
-}
+} */
 
-@media screen and (min-width:1101px) {
+@media screen and (min-width:900px) {
+    body{
+        align-items: center;
+    }
+
     section{
         flex-direction: row;
         align-items: stretch;
+    }
+
+    .parent_container{
+        width: 100%;
     }
 
     .second.parent_container{
@@ -218,7 +233,7 @@ input.child_data{
     }
 
     .discount button,.discount input{
-        width: calc(31.5% - 0.1rem);
+        width: calc(31.4% - 0.1rem);
     }
 
     .discount{

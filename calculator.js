@@ -28,6 +28,9 @@ console.log(Tips);
 //     })
 // });
 
+tipPerPerson.innerHTML= "$0.00";
+totalPerPerson.innerHTML= "$0.00";
+
 resetButton.setAttribute("disabled","disabled");
 resetButton.classList.add('desactivated');
 
