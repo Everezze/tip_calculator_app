@@ -34,6 +34,15 @@ totalPerPerson.innerHTML= "$0.00";
 resetButton.setAttribute("disabled","disabled");
 resetButton.classList.add('desactivated');
 
+window.addEventListener('load', function(){
+    for(const tip of Tips) {
+        if(tip.value == 0.05) {
+            t = parseFloat(tip.value);
+            tip.classList.toggle('active');
+        }
+    }
+})
+
 for(let tip of Tips){
 
     tip.addEventListener('click',function(){
