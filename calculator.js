@@ -133,7 +133,19 @@ bill.addEventListener('keyup',function(){
     console.log(typeof(bill.value));
     
     */
+   
+    if(bill.value.match(/[a-zA-Z]/)){
+        bill.value="";
+    }
+
     billValue = parseFloat(bill.value);
+
+    // if(bill.value.match(/0-9/g)) {
+    //     billValue = parseFloat(bill.value);
+    // }
+    // else{
+    //     bill.value="";
+    // }
 
     console.log('keyup working');
     console.log(billValue);
@@ -172,7 +184,6 @@ bill.addEventListener('keyup',function(){
         bill.style.outline = "2px solid crimson";
         errorMessageBill.style.display = "block";
     }
-
     else{
         bill.style.outline = "";
         errorMessageBill.style.display="none";
@@ -201,6 +212,10 @@ bill.addEventListener('keyup',function(){
 // })
 
 numberOfPeople.addEventListener('keyup',function(){
+
+    if(numberOfPeople.value.match(/[a-zA-Z]/)){
+        numberOfPeople.value="";
+    }
 
     pplValue = parseFloat(numberOfPeople.value);
 
@@ -261,13 +276,17 @@ numberOfPeople.addEventListener('keyup',function(){
 
 customTip.addEventListener('keyup',function(){
 
+    if(customTip.value.match(/[a-zA-Z]/)) {
+        customTip.value="";
+    }
+
+    // customedTip = parseFloat(customTip.value);
     customedTip = parseFloat(customTip.value);
 
     if(customedTip <1 && customedTip !=NaN) {
         customTip.style.outline = "2px solid crimson";
         errorMessageTip.style.display = "block";
     }
-
     else{
         customTip.style.outline = "";
         errorMessageTip.style.display="none";
