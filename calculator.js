@@ -67,7 +67,7 @@ for(let tip of Tips){
         if(tip.classList.contains('active')) {
             t = parseFloat(tip.value);
         }
-        else{t=0;}
+        else{t = NaN;}
 
         console.log(t);
         
@@ -85,7 +85,7 @@ for(let tip of Tips){
         console.log(`Total overall is ${totalOverall}`);
         console.log(`Bill is ${billValue}`);
 
-        if(!bill.value && !customTip.value && !numberOfPeople.value) {
+        if(!bill.value && !t && !numberOfPeople.value) {
             resetButton.setAttribute("disabled","disabled");
             resetButton.classList.add('desactivated');
         }
