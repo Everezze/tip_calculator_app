@@ -103,10 +103,13 @@ for(let tip of Tips){
         //     totalPerPerson.innerHTML= "$...";
         // }
 
-        if(t != customTip.value) {
-            customTip.style.outline ="";
-            errorMessageTip.style.display="none";
-        }
+        // if(t != customTip.value) {
+        //     customTip.style.outline ="";
+        //     errorMessageTip.style.display="none";
+        // }
+
+        customTip.style.outline ="";
+        errorMessageTip.style.display="none";
 
         if(!billValue || !pplValue || !t){
             tipPerPerson.innerHTML= "$0.00";
