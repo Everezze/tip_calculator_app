@@ -22,12 +22,12 @@
             <div class="container">
 
                 <div class="error_container">
-                    <label for="" class="labels">Bill</label>
-                    <p id="error_msg_bill">Can't be zero</p>
+                    <label for="bill" class="labels">Bill</label>
+                    <p id="error_msg_bill" aria-live="polite">Can't be zero</p>
                 </div>
                 
                 <div id="dollar">
-                    <input type="text" pattern="\d*" class="child_data" id="bill" placeholder="0"> <!-- dir="rtl" -->  
+                    <input type="text" pattern="\d*" class="child_data" id="bill" placeholder="0" aria-describedby="error_msg_bill"> <!-- dir="rtl" -->  
                 </div>
                  
             </div>
@@ -36,7 +36,7 @@
 
                 <div class="error_container">
                     <h3 class="labels">select tip %</h3>
-                    <p id="error_msg_tip">Can't be zero</p>
+                    <p id="error_msg_tip" aria-live="polite">Can't be zero</p>
                 </div>
                 
                 <div class="discount">
@@ -46,19 +46,19 @@
                     <button value="0.25" class="child_data tips">25%</button>
                     <button value="0.50" class="child_data tips">50%</button>
                     <!-- <input type="text" class="child_data tips" value="Custom" id="custom"> -->
-                    <input type="text" id="custom" placeholder="Custom"> <!-- dir="rtl" -->
+                    <input type="text" id="custom" placeholder="Custom" aria-describedby="error_msg_tip"> <!-- dir="rtl" -->
                 </div>
             </div>
 
             <div class="container">
 
                 <div class="error_container">
-                    <label for="" class="labels">number of people</label>
-                    <p id="error_msg_ppl">Can't be zero</p>
+                    <label for="numberOfPeople" class="labels">number of people</label>
+                    <p id="error_msg_ppl" aria-live="polite">Can't be zero</p>
                 </div>
                 
                 <div id="people_icon">
-                    <input type="text" class="child_data" id="numberOfPeople" placeholder="0"> <!-- dir="rtl" -->
+                    <input type="text" class="child_data" id="numberOfPeople" placeholder="0" aria-describedby="error_msg_ppl"> <!-- dir="rtl" -->
                 </div>
                 
             </div>
