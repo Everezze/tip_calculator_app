@@ -2,6 +2,8 @@
 
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
+![Design preview for the Order summary card coding challenge](./design/desktop-preview.jpg)
+
 ## Table of contents
 
   - [The challenge](#the-challenge)
